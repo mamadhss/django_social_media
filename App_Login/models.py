@@ -12,6 +12,12 @@ class UserProfile(models.Model):
     facebook = models.URLField(blank=True)
 
 
+class Follow(models.Model):
+    following = models.ForeignKey(User,on_delete=models.CASCADE,related_name='following')
+    follower = models.ForeignKey(User,on_delete=models.CASCADE,related_name='follower')
+
+
+
 
 """  A post_save signal received when a User instance is created """
 

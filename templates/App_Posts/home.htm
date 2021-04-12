@@ -1,0 +1,20 @@
+{% extends 'navbar.htm' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+{% block body_block %}
+  {% if messages %}
+
+    {% for message in messages %}
+      <div class="alert alert-success">
+        {{message}}
+      </div>
+          
+    {% endfor %}
+
+  {% endif %}
+
+{% endblock %}

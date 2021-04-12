@@ -58,8 +58,9 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request,'Updated!')
+            return HttpResponseRedirect(reverse('App_Posts:home'))
             #form.save(commit=True)
-            form = EditProfile(instance=current_user)
+            
             
 
 

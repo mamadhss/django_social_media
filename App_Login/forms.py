@@ -35,6 +35,7 @@ class CreateNewUser(UserCreationForm):
 
 class EditProfile(forms.ModelForm):
     dob = forms.DateField(
+        required=False,
         widget=forms.TextInput(attrs={'type':'date',})
     )
     class Meta:

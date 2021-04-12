@@ -29,7 +29,19 @@
 
           <li class="nav-item active">
 
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="{% url 'App_Posts:home' %}">Home</a>
+
+          </li>
+
+          <li class="nav-item active">
+
+            <a class="nav-link" href="{% url 'App_Login:login' %}">Login</a>
+
+          </li>
+
+          <li class="nav-item active">
+
+            <a class="nav-link" href="{% url 'App_Login:sign_up' %}">Signup</a>
 
           </li>
 

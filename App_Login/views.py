@@ -58,12 +58,9 @@ def edit_profile(request):
         if form.is_valid():
             form.save()
             messages.success(request,'Updated!')
-            return HttpResponseRedirect(reverse('App_Posts:home'))
+            return HttpResponseRedirect(reverse('App_Login:profile'))
             #form.save(commit=True)
             
-            
-
-
     context = {
         'title':'Edit Profile Page',
         'form':form,
@@ -76,6 +73,11 @@ def logout_user(request):
     messages.success(request,'successfully logged out')
     return HttpResponseRedirect(reverse('App_Login:login'))
 
+
+@login_required(login_url=settings.LOGIN_URL) 
+def profile(request):
+    
+    return render(request,'App_Login/user.htm')
 
 
         

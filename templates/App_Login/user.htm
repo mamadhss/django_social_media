@@ -1,0 +1,43 @@
+{% extends 'navbar.htm' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+  {{title}}
+{% endblock %}
+
+
+{% block body_block %}
+
+    {% if messages %}
+
+        {% for message in messages %}
+        
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+            
+        {% endfor %}
+
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col-sm-4">
+            {% if user.user_profile.profile_pic %}
+             <img src="{{ request.user.user_profile.profile_pic.url }}" width="220px" height="220px"" class="rounded-circle">
+            {% else %}
+            <img src="/media/default.jpg" width="220px"" height="220px"" class="rounded-circle" >
+            {% endif %}
+        </div>
+
+        <div class="col-sm-8">
+            <h3>{{user.username}}</h3>
+            <h4>{{user.post.count}} Posts &nbsp;&nbsp; {{user.follower.count}} Followers
+                &nbsp;&nbsp; {{user.follower.count}} Following
+                
+            </h4>
+
+        </div>
+    </div>
+  
+{% endblock %}

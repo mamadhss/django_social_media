@@ -7,7 +7,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib import messages
-
+from App_Posts.forms import PostForm
 def sign_up(request):
     form =  CreateNewUser()
     registered = False
@@ -76,8 +76,19 @@ def logout_user(request):
 
 @login_required(login_url=settings.LOGIN_URL) 
 def profile(request):
-    
-    return render(request,'App_Login/user.htm')
+    form = PostForm()
+    if request.method == 'POST':
+        form = PostForm(request.POST,request.FILES)
+        if form.is_valid():
+            form.instance.author = request.user
+            form.save()    
+            return HttpResponseRedirect(reverse('App_Posts:home'))   
+
+    context = {
+        'form':form
+    }             
+
+    return render(request,'App_Login/user.htm',context)
 
 
         

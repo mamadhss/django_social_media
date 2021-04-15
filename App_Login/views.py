@@ -42,7 +42,7 @@ def login_page(request):
             user = authenticate(username=username,password=password)
             if user is not None:
                 login(request,user)
-                return HttpResponseRedirect(reverse('App_Login:edit'))
+                return HttpResponseRedirect(reverse('App_Login:profile'))
     context = {
         'title':'Login Page',
         'form':form

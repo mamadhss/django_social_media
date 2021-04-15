@@ -8,6 +8,8 @@ from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from django.contrib import messages
 from App_Posts.forms import PostForm
+from django.contrib.auth.models import User
+
 def sign_up(request):
     form =  CreateNewUser()
     registered = False
@@ -92,7 +94,9 @@ def profile(request):
 
 
         
-
+@login_required(login_url=settings.LOGIN_URL) 
+def user(request,slug):
+    user = User.objects.get(username=slug)
 
         
 

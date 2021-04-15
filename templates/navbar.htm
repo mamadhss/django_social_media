@@ -43,14 +43,9 @@
             {% endif %}
           
           </li>
+          {% else %}
 
-            {% else %}
-
-            <li class="nav-item active">
-
-              <a class="nav-link" href="{% url 'App_Posts:home' %}">Home</a>
-  
-            </li>
+      
   
             <li class="nav-item active">
   
@@ -64,9 +59,21 @@
   
             </li>
 
+          {% endif %}  
+
+          <li class="nav-item active">
+  
+            <a class="nav-link" href="{% url 'App_Posts:home' %}">Home</a>
+
+          </li>
+
+          <form class="form-inline" method="GET">
+            <input class="form-control mr-sm-2" name="search" type="text" placeholder="Search">
+            <button class="btn btn-success"  type="submit">Search</button>
+          </form>
         </ul> 
         
-          {% endif %}
+          
 
 
           

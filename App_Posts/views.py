@@ -2,13 +2,11 @@ from django.shortcuts import render,HttpResponse
 from django.contrib.auth.models import User
 
 def home(request):
-
-
-    if request.method == 'GET':
-       search = request.GET.get('search')
-       users = User.objects.all()
-       if search:
-           users = users.filter(username__icontains=search)
+    
+    search = request.GET.get('search')
+    users = User.objects.all()
+    if search:
+        users = users.filter(username__icontains=search)
        
 
     context = {

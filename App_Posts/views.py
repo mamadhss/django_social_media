@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
+@login_required(login_url=settings.LOGIN_URL)
 def home(request):
     following_list = Follow.objects.filter(follower=request.user)
     posts = Post.objects.filter(author__in=following_list.values_list('following'))

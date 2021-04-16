@@ -26,7 +26,7 @@ SECRET_KEY = '_%-@tr1^tr*v0kd-ow)k%moyfsl$1!j@8k+jd)zxnztm_50rqp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['social-med-django.herokuapp.com','127.0.0.1']
 
 
 # Application definition
